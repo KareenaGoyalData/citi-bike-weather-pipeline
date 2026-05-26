@@ -38,12 +38,26 @@ Three analytics views:
 5. **Most trips are short.** The vast majority of rides are clustered under 30 minutes.
 6. **Subscribers dominate ridership.** The overwhelming majority of rides are taken by subscribers rather than casual customers.
 
+## Setup
+
+### Running the notebook
+1. Open `citibikepipeline.ipynb` in Google Colab or JupyterLab
+2. Install dependencies: `pip install pandas numpy psycopg2-binary sqlalchemy matplotlib seaborn`
+3. The data files are included in the `data/` folder — no additional downloads needed
+4. Run all cells up to the PostgreSQL loading section
+
+### Setting up the database locally
+1. Install PostgreSQL and create a database named `citibike`
+2. Run the notebook top to bottom to load data into the database
+3. Run `sqlbikes.sql` in your PostgreSQL client to create the analytics views
+
 ## Repository Structure
 
 ```
 citi-bike-weather-pipeline/
 ├── citibikepipeline.ipynb   # Full pipeline notebook
 ├── sqlbikes.sql             # SQL view definitions
+├── data/                    # Raw CSV data files
 ├── rides_by_temp.png
 ├── station_popularity.png
 ├── weather_trip_duration.png
