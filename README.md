@@ -57,9 +57,10 @@ Three analytics views:
 
 ```
 citi-bike-weather-pipeline/
-├── citibikepipeline.ipynb   # Full pipeline notebook
-├── sqlbikes.sql             # SQL view definitions
-├── data/                    # Raw CSV data files
+├── citibikepipeline.ipynb      # Full pipeline notebook
+├── sqlbikes.sql                # SQL view definitions
+├── newark_airport_2016.csv     # NOAA weather data (Newark Airport, 2016)
+├── data/                       # Raw Citi Bike CSV data files
 ├── rides_by_temp.png
 ├── station_popularity.png
 ├── weather_trip_duration.png
