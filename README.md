@@ -4,7 +4,9 @@ An end-to-end data pipeline analyzing the effect of weather on Citi Bike ridersh
 ## Overview
 This project loads, cleans, and merges 12 months of Citi Bike trip data with daily weather observations from Newark Airport into a normalized PostgreSQL database. SQL views are used to aggregate the data for analysis, and the results are visualized in Python.
 
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/KareenaGoyalData/citi-bike-weather-pipeline/blob/main/citibikepipeline.ipynb)
+<a href="https://colab.research.google.com/github/KareenaGoyalData/citi-bike-weather-pipeline/blob/main/citibikepipeline.ipynb" target="_blank">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab"/>
+</a>
 
 ## Tech Stack
 - **Python** — pandas, SQLAlchemy, matplotlib, seaborn
