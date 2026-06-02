@@ -60,6 +60,8 @@ Three analytics views:
 ## Notebook
 All cell outputs are saved — open `citibikepipeline.ipynb` on GitHub to view the full pipeline and results without running anything.
 
+[![View Notebook](https://img.shields.io/badge/View-Notebook-blue)](citibikepipeline.ipynb)
+
 To reproduce locally:
 1. Install dependencies: `pip install -r requirements.txt`
 2. Set up a PostgreSQL database (locally or via Supabase) and run `schema.sql`
