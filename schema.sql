@@ -1,36 +1,42 @@
-CREATE TABLE IF NOT EXISTS weather (
-    date DATE PRIMARY KEY,
-    awnd NUMERIC(6,2),
-    prcp NUMERIC(6,2),
-    snow NUMERIC(6,2),
-    snwd NUMERIC(6,2),
-    tavg NUMERIC(6,2),
-    tmax NUMERIC(6,2),
-    tmin NUMERIC(6,2),
-    wdf2 NUMERIC(6,2),
-    wdf5 NUMERIC(6,2),
-    wsf2 NUMERIC(6,2),
-    wsf5 NUMERIC(6,2)
+CREATE TABLE public.weather (
+  date date NOT NULL,
+  awnd numeric,
+  prcp numeric,
+  snow numeric,
+  snwd numeric,
+  tavg numeric,
+  tmax numeric,
+  tmin numeric,
+  wdf2 numeric,
+  wdf5 numeric,
+  wsf2 numeric,
+  wsf5 numeric,
+  CONSTRAINT weather_pkey PRIMARY KEY (date)
 );
 
-CREATE TABLE IF NOT EXISTS stations (
-    station_id INTEGER PRIMARY KEY,
-    station_name TEXT,
-    latitude NUMERIC(8,4),
-    longitude NUMERIC(8,4)
+CREATE TABLE public.stations (
+  station_id integer NOT NULL,
+  station_name text,
+  latitude numeric,
+  longitude numeric,
+  CONSTRAINT stations_pkey PRIMARY KEY (station_id)
 );
 
-CREATE TABLE IF NOT EXISTS trips (
-    id SERIAL PRIMARY KEY,
-    date DATE REFERENCES weather(date),
-    start_time TIME,
-    stop_time TIME,
-    trip_duration INTEGER,
-    trip_duration_mins NUMERIC(10,2),
-    start_station_id INTEGER REFERENCES stations(station_id),
-    end_station_id INTEGER REFERENCES stations(station_id),
-    bike_id INTEGER,
-    user_type TEXT,
-    birth_year INTEGER,
-    gender INTEGER
+CREATE TABLE public.trips (
+  id integer NOT NULL DEFAULT nextval('trips_id_seq'::regclass),
+  date date,
+  start_time time without time zone,
+  stop_time time without time zone,
+  trip_duration integer,
+  trip_duration_mins numeric,
+  start_station_id integer,
+  end_station_id integer,
+  bike_id integer,
+  user_type text,
+  birth_year integer,
+  gender integer,
+  CONSTRAINT trips_pkey PRIMARY KEY (id),
+  CONSTRAINT trips_date_fkey FOREIGN KEY (date) REFERENCES public.weather(date),
+  CONSTRAINT trips_start_station_id_fkey FOREIGN KEY (start_station_id) REFERENCES public.stations(station_id),
+  CONSTRAINT trips_end_station_id_fkey FOREIGN KEY (end_station_id) REFERENCES public.stations(station_id)
 );
